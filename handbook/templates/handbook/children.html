@@ -1,0 +1,674 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Мектепке дейінгі және дайындық курстары</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+<link href="{% static 'css/style1.css' %}" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  .preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  /* фоновый цвет */
+  background: #e0e0e0;
+  z-index: 1001;
+}
+
+.preloader__image {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
+@font-face {
+  font-family:'Cooper'; 
+  src: url('Сooper.ttf'); 
+ }
+</style>
+</head>
+<body id="top" style="background:#ffffff;">
+ 
+  <div class="preloader">
+    <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path fill="currentColor"
+        d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
+      </path>
+    </svg>
+  </div>
+<div class="" style="background-image:url({% static 'img/education.png' %});background-size: 100% 100%;"> 
+  <header id="header" class="hoc clear"> 
+    <div id="logo" class="one_quarter first">
+      <h1><a href="#" style="font-family: 'KZ Cooper';font-weight: bold;
+        color: #00750D;
+        text-shadow: 
+		-0   -2px 0   #FFFFFF,
+		 0   -2px 0   #FFFFFF,
+		-0    2px 0   #FFFFFF,
+		 0    2px 0   #FFFFFF,
+		-2px -0   0   #FFFFFF,
+		 2px -0   0   #FFFFFF,
+		-2px  0   0   #FFFFFF,
+		 2px  0   0   #FFFFFF,
+		-1px -2px 0   #FFFFFF,
+		 1px -2px 0   #FFFFFF,
+		-1px  2px 0   #FFFFFF,
+		 1px  2px 0   #FFFFFF,
+		-2px -1px 0   #FFFFFF,
+		 2px -1px 0   #FFFFFF,
+		-2px  1px 0   #FFFFFF,
+		 2px  1px 0   #FFFFFF,
+		-2px -2px 0   #FFFFFF,
+		 2px -2px 0   #FFFFFF,
+		-2px  2px 0   #FFFFFF,
+		 2px  2px 0   #FFFFFF,
+		-2px -2px 0   #FFFFFF,
+		 2px -2px 0   #FFFFFF,
+		-2px  2px 0   #FFFFFF,
+		 2px  2px 0   #FFFFFF;">Мектепке </a></h1>
+      <p style="font-family: 'KZ Cooper';font-weight: bold;
+      color: #00750D;
+      text-shadow: 
+      -0   -1px 0   #FFFFFF,
+      0   -1px 0   #FFFFFF,
+     -0    1px 0   #FFFFFF,
+      0    1px 0   #FFFFFF,
+     -1px -0   0   #FFFFFF,
+      1px -0   0   #FFFFFF,
+     -1px  0   0   #FFFFFF,
+      1px  0   0   #FFFFFF,
+     -1px -1px 0   #FFFFFF,
+      1px -1px 0   #FFFFFF,
+     -1px  1px 0   #FFFFFF,
+      1px  1px 0   #FFFFFF,
+     -1px -1px 0   #FFFFFF,
+      1px -1px 0   #FFFFFF,
+     -1px  1px 0   #FFFFFF,
+      1px  1px 0   #FFFFFF;">дейінгі және дайындық курсы</p>
+    </div>
+    <div class="three_quarter">
+      <ul class="nospace clear">
+        <li class="one_third first">
+          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Қоңырау шалыңыз:</strong></span></div>
+        </li>
+        <li class="one_third">
+          <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Хабарлама жолдаңыз:</strong> </span></div>
+        </li>
+        <li class="one_third">
+          <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Дүйсенбі - Жұма:</strong> 08.00 - 18.00</span></div>
+        </li>
+      </ul>
+    </div>
+    
+  </header>
+ 
+  <section id="navwrapper" class="hoc clear"> 
+    
+    <nav id="mainav">
+      <ul class="clear">
+        <li class="active"><a href="{% url 'main_page' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+          color: #00750D;
+          text-shadow: 
+          -0   -1px 0   #FFFFFF,
+          0   -1px 0   #FFFFFF,
+         -0    1px 0   #FFFFFF,
+          0    1px 0   #FFFFFF,
+         -1px -0   0   #FFFFFF,
+          1px -0   0   #FFFFFF,
+         -1px  0   0   #FFFFFF,
+          1px  0   0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF;"><img src="{% static 'img/123.svg' %}" style="position:relative;"><br>Басты</a></li>
+        <li><a class="drop" href="#"  style="font-family: 'KZ Cooper';font-weight: bold;
+          color: #00750D;
+          text-shadow: 
+          -0   -1px 0   #FFFFFF,
+          0   -1px 0   #FFFFFF,
+         -0    1px 0   #FFFFFF,
+          0    1px 0   #FFFFFF,
+         -1px -0   0   #FFFFFF,
+          1px -0   0   #FFFFFF,
+         -1px  0   0   #FFFFFF,
+          1px  0   0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF;"><img src="{% static 'img/456.svg' %}" style="position:relative;"><br>Курстар</a>
+          <ul>
+            <li><a href="{% url 'ishop'%}" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow: 
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">3 жас</a></li>
+            <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow: 
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">4 жас</a></li>
+            <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow: 
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">5 жас</a></li>
+            <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow: 
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">6 жас</a></li>
+            <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow: 
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">Қосымша</a></li>
+            <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow: 
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">Жаңалық</a></li>
+          </ul>
+        </li>
+        {% if user.is_authenticated %}
+          <li><a href="#" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow: 
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1002.svg' %}" style="position:relative;width:70px;height:70px;"><br>{{ user.get_username }}</a></li>
+          <li><a href="{% url 'logout'%}?next={{request.path}}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow: 
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1003.svg' %}" style="margin-left:35px;margin:5px;width:59px;height:59px;position:relative;"><br>Шығу</a></li>
+          <li><a href="{% url 'addnew' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow: 
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1001.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>КУРСТАРЫМ</a></li>
+            <li><a href="{% url 'children' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow: 
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1007.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>ОҚУШЫЛАРЫМ</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}?next={{request.path}}" style="font-family: 'KZ Cooper';font-weight: bold;
+          color: #00750D;
+          text-shadow: 
+          -0   -1px 0   #FFFFFF,
+          0   -1px 0   #FFFFFF,
+         -0    1px 0   #FFFFFF,
+          0    1px 0   #FFFFFF,
+         -1px -0   0   #FFFFFF,
+          1px -0   0   #FFFFFF,
+         -1px  0   0   #FFFFFF,
+          1px  0   0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF;"><img src="{% static 'img/789.svg' %}" style="position:relative;width:54px;height:54px;"><br>Кіру</a></li>
+        <li><a href="{% url 'register' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+          color: #00750D;
+          text-shadow: 
+          -0   -1px 0   #FFFFFF,
+          0   -1px 0   #FFFFFF,
+         -0    1px 0   #FFFFFF,
+          0    1px 0   #FFFFFF,
+         -1px -0   0   #FFFFFF,
+          1px -0   0   #FFFFFF,
+         -1px  0   0   #FFFFFF,
+          1px  0   0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF;"><img src="{% static 'img/999.svg' %}" style="position:relative;"><br>Тіркелу</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+    
+
+    
+  </section>
+
+  
+<!--позвонить-->
+
+<div class="wrapper row3" style="background:url({% static 'img/13.jpg' %});margin-left:0px;background-size: 100% 100%;">
+  <main class="hoc container clear"> <br><br><br><br><br>
+    <section>
+      <h1 style="font-size:35px;margin-top:-100px;font-family:'KZ Cooper';font-weight: bold;
+      color: #034C0A;
+      text-shadow: 
+        -0   -3px 0   #FFFFFF,
+         0   -3px 0   #FFFFFF,
+        -0    3px 0   #FFFFFF,
+         0    3px 0   #FFFFFF,
+        -3px -0   0   #FFFFFF,
+         3px -0   0   #FFFFFF,
+        -3px  0   0   #FFFFFF,
+         3px  0   0   #FFFFFF,
+        -1px -3px 0   #FFFFFF,
+         1px -3px 0   #FFFFFF,
+        -1px  3px 0   #FFFFFF,
+         1px  3px 0   #FFFFFF,
+        -3px -1px 0   #FFFFFF,
+         3px -1px 0   #FFFFFF,
+        -3px  1px 0   #FFFFFF,
+         3px  1px 0   #FFFFFF,
+        -2px -3px 0   #FFFFFF,
+         2px -3px 0   #FFFFFF,
+        -2px  3px 0   #FFFFFF,
+         2px  3px 0   #FFFFFF,
+        -3px -2px 0   #FFFFFF,
+         3px -2px 0   #FFFFFF,
+        -3px  2px 0   #FFFFFF,
+         3px  2px 0   #FFFFFF,
+        -3px -3px 0   #FFFFFF,
+         3px -3px 0   #FFFFFF,
+        -3px  3px 0   #FFFFFF,
+         3px  3px 0   #FFFFFF,
+        -3px -3px 0   #FFFFFF,
+         3px -3px 0   #FFFFFF,
+        -3px  3px 0   #FFFFFF,
+         3px  3px 0   #FFFFFF;">3 ЖАС - ОҚУШЫЛАРЫ</h1><br><br><br><br><br>
+
+
+         <div class="row">
+          {% for uss in usser %}
+          
+            <div class="col-xs-6 col-md-12" style="margin-top:15px;">
+              <table>
+                <tr>
+                  <td style="width:15%;border-top-left-radius: 40px;">
+                    <div style="width:100%;height:150px;background:rgb(160, 217, 130);cursor:pointer;">
+                      <img src="{% static 'img/1007.svg' %}" style="width:100%;height:90%;display:block;margin:0 auto;padding:14px;">
+                                         
+
+                    </div>
+                  </td>
+                  <td rowspan="2" style="padding:15px;">
+                    <p  style="font-family: 'KZ Cooper';font-weight: bold;
+                      color: #00750D;
+                      text-shadow: 
+                      -0   -1px 0   #FFFFFF,
+                      0   -1px 0   #FFFFFF,
+                     -0    1px 0   #FFFFFF,
+                      0    1px 0   #FFFFFF,
+                     -1px -0   0   #FFFFFF,
+                      1px -0   0   #FFFFFF,
+                     -1px  0   0   #FFFFFF,
+                      1px  0   0   #FFFFFF,
+                     -1px -1px 0   #FFFFFF,
+                      1px -1px 0   #FFFFFF,
+                     -1px  1px 0   #FFFFFF,
+                      1px  1px 0   #FFFFFF,
+                     -1px -1px 0   #FFFFFF,
+                      1px -1px 0   #FFFFFF,
+                     -1px  1px 0   #FFFFFF,
+                      1px  1px 0   #FFFFFF;">Аты - жөні: {{uss.first_name}}  {{uss.last_name}}</p>
+                      <p  style="font-family: 'KZ Cooper';font-weight: bold;
+                      color: #00750D;
+                      text-shadow: 
+                      -0   -1px 0   #FFFFFF,
+                      0   -1px 0   #FFFFFF,
+                     -0    1px 0   #FFFFFF,
+                      0    1px 0   #FFFFFF,
+                     -1px -0   0   #FFFFFF,
+                      1px -0   0   #FFFFFF,
+                     -1px  0   0   #FFFFFF,
+                      1px  0   0   #FFFFFF,
+                     -1px -1px 0   #FFFFFF,
+                      1px -1px 0   #FFFFFF,
+                     -1px  1px 0   #FFFFFF,
+                      1px  1px 0   #FFFFFF,
+                     -1px -1px 0   #FFFFFF,
+                      1px -1px 0   #FFFFFF,
+                     -1px  1px 0   #FFFFFF,
+                      1px  1px 0   #FFFFFF;">Email: {{uss.email}}</p>
+                    <p  style="font-family: 'KZ Cooper';font-weight: bold;
+                      color: #00750D;
+                      text-shadow: 
+                      -0   -1px 0   #FFFFFF,
+                      0   -1px 0   #FFFFFF,
+                     -0    1px 0   #FFFFFF,
+                      0    1px 0   #FFFFFF,
+                     -1px -0   0   #FFFFFF,
+                      1px -0   0   #FFFFFF,
+                     -1px  0   0   #FFFFFF,
+                      1px  0   0   #FFFFFF,
+                     -1px -1px 0   #FFFFFF,
+                      1px -1px 0   #FFFFFF,
+                     -1px  1px 0   #FFFFFF,
+                      1px  1px 0   #FFFFFF,
+                     -1px -1px 0   #FFFFFF,
+                      1px -1px 0   #FFFFFF,
+                     -1px  1px 0   #FFFFFF,
+                      1px  1px 0   #FFFFFF;">Логин: {{uss}}</p>
+                      <hr style="border-top: 3px solid #00750D;">
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width:15%;border-top-left-radius: 40px;">
+                    <img src="{% static 'img/1005.svg' %}" style="width:29px;height:29px;">
+                    <img src="{% static 'img/1005.svg' %}" style="width:29px;height:29px;">
+                    <img src="{% static 'img/1005.svg' %}" style="width:29px;height:29px;">
+                    <img src="{% static 'img/1005.svg' %}" style="width:29px;height:29px;">
+                    <img src="{% static 'img/1005.svg' %}" style="width:29px;height:29px;">
+                    <div style="width:100%;padding:3px;background:rgb(114 202 67);cursor:pointer;">
+                      <a href=""> <p  style="padding:10px;font-family: 'KZ Cooper';font-weight: bold;
+                      color: #00750D;
+                      text-shadow: 
+                      -0   -1px 0   #FFFFFF,
+                      0   -1px 0   #FFFFFF,
+                     -0    1px 0   #FFFFFF,
+                      0    1px 0   #FFFFFF,
+                     -1px -0   0   #FFFFFF,
+                      1px -0   0   #FFFFFF,
+                     -1px  0   0   #FFFFFF,
+                      1px  0   0   #FFFFFF,
+                     -1px -1px 0   #FFFFFF,
+                      1px -1px 0   #FFFFFF,
+                     -1px  1px 0   #FFFFFF,
+                      1px  1px 0   #FFFFFF,
+                     -1px -1px 0   #FFFFFF,
+                      1px -1px 0   #FFFFFF,
+                     -1px  1px 0   #FFFFFF,
+                      1px  1px 0   #FFFFFF;">  <img src="{% static 'img/1009.svg' %}" style="width:29px;">  БАҒАЛАУ</p>
+                    
+                    </a>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+          {% endfor %}
+        </div>
+    
+    <div class="clear"></div>
+  </main>
+</div>
+
+
+<!--позвонить-->
+
+<div class="wrapper row3" style="background-image:url({% static 'img/13.jpg' %});background-size: 100% 100%;">
+  <main class="hoc container clear"> 
+   <br><br><br><br><br><br>
+    <section id="introblocks">
+      <div class="row">
+        <div class="col-xs-6 col-md-3">
+          <figure><a class="imgover" href=""><img src="{% static 'img/internetshop.png' %}" alt=""></a>
+            <figcaption>
+              <a class="heading" href="{% url 'ishop'%}"><h6  style="text-transform:lowercase;width:100%;text-align:center;box-shadow: 3px 4px 0px 0px #3e7327;
+                background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+                background-color:#77b55a;
+                border-radius:18px;
+                border:1px solid #4b8f29;
+                color:#ffffff;
+                font-family:'KZ Cooper';
+                font-size:17px;
+                padding:7px 25px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #5b8a3c;">3 жас</h6></a>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+          <figure><a class="imgover" href=""><img src="{% static 'img/ed.png' %}" alt=""></a>
+            <figcaption>
+              <a class="heading" href=""><h6  style="text-transform:lowercase;width:100%;text-align:center;box-shadow: 3px 4px 0px 0px #3e7327;
+                background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+                background-color:#77b55a;
+                border-radius:18px;
+                border:1px solid #4b8f29;
+                color:#ffffff;
+                font-family:'KZ Cooper';
+                font-size:17px;
+                padding:7px 25px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #5b8a3c;">4 жас</h6></a>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+          <figure><a class="imgover" href=""><img src="{% static 'img/shopping.png' %}" alt=""></a>
+            <figcaption>
+              <a class="heading" href=""><h6  style="text-transform:lowercase;width:100%;text-align:center;box-shadow: 3px 4px 0px 0px #3e7327;
+                background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+                background-color:#77b55a;
+                border-radius:18px;
+                border:1px solid #4b8f29;
+                color:#ffffff;
+                font-family:'KZ Cooper';
+                font-size:17px;
+                padding:7px 25px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #5b8a3c;">5 жас</h6></a>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+          <figure><a class="imgover" href=""><img src="{% static 'img/furniture.png' %}" alt=""></a>
+            <figcaption>
+              <a class="heading" href=""><h6  style="text-transform:lowercase;width:100%;text-align:center;box-shadow: 3px 4px 0px 0px #3e7327;
+                background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+                background-color:#77b55a;
+                border-radius:18px;
+                border:1px solid #4b8f29;
+                color:#ffffff;
+                font-family:'KZ Cooper';
+                font-size:17px;
+                padding:7px 25px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #5b8a3c;">6 жас</h6></a>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+    
+    <div class="clear"></div>
+  </main>
+</div>
+
+<a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+<!-- JAVASCRIPTS -->
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.backtotop.js' %}"></script>
+<script src="{% static 'js/jquery.mobilemenu.js' %}"></script>
+<script>
+  window.onload = function () {
+    document.body.classList.add('loaded_hiding');
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+      document.body.classList.remove('loaded_hiding');
+    }, 500);
+  }
+</script>
+
+
+</body>
+</html>

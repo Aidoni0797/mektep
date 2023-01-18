@@ -1,0 +1,104 @@
+{% extends "users/base.html" %}
+{% block title %} ТІРКЕЛУ {% endblock title%}
+{% block content %}
+    <div class="form-content my-3 p-3">
+		<div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="card shadow-lg border-0 rounded-lg mt-0 mb-5">
+                        <div class="card-header justify-content-center" style="background: rgba(rgb(149, 190, 99), rgb(86, 146, 86), rgba(0, 255, 98, 0.762), alpha);">
+                        	<a  style="font-family: 'KZ Cooper';font-weight: bold;
+                            color: #00750D;
+                            text-shadow: 
+                            -0   -1px 0   #FFFFFF,
+                            0   -1px 0   #FFFFFF,
+                           -0    1px 0   #FFFFFF,
+                            0    1px 0   #FFFFFF,
+                           -1px -0   0   #FFFFFF,
+                            1px -0   0   #FFFFFF,
+                           -1px  0   0   #FFFFFF,
+                            1px  0   0   #FFFFFF,
+                           -1px -1px 0   #FFFFFF,
+                            1px -1px 0   #FFFFFF,
+                           -1px  1px 0   #FFFFFF,
+                            1px  1px 0   #FFFFFF,
+                           -1px -1px 0   #FFFFFF,
+                            1px -1px 0   #FFFFFF,
+                           -1px  1px 0   #FFFFFF,
+                            1px  1px 0   #FFFFFF;">ТІРКЕЛУ</a>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                {% if form.errors %}
+                                    <div class="alert alert-danger alert-dismissible" role="alert">
+                                        <div id="form_errors">
+                                            {% for key, value in form.errors.items %}
+                                                <strong>{{ value }}</strong>
+                                            {% endfor %}
+                                        </div>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endif %}
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1">Есіміңіз</label>
+                                            {{ form.first_name }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1">Тегіңіз</label>
+                                            {{ form.last_name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+		                                <div class="form-group">
+		                                	<label class="small mb-1">Қолданушы аты</label>
+		                                    {{ form.username }}
+		                                </div>
+		                            </div>
+                                    <div class="col-md-6">
+		                                <div class="form-group">
+		                                	<label class="small mb-1">Email</label>
+		                                    {{ form.email }}
+		                                </div>
+		                            </div>
+		                        </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="small mb-1">Құпия сөз</label>
+                                            {{ form.password1 }}
+                                            {{ form.errors.password }}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label class="small mb-1">Құпия сөзді қайталау</label>
+                                            {{ form.password2 }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-4 mb-0" style="background: #77b48f;">
+                                    <button type="submit" class="col-md-12 btn btn-dark">ТІРКЕУ</button><br><br>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-center">
+                            <div class="small">
+                                <a href="{% url 'login' %}">Сілтеме бойынша жүйеге кіріңіз</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+{% endblock content %}

@@ -1,0 +1,6 @@
+{% url 'ishop'%}
+{% url 'smarket' %}
+{% url 'shopping'%}
+{% url 'shopping' %}
+{% url 'company_detail' pk=ishop.pk %}
+{% url 'editcompany' pk=company.pk %}

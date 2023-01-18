@@ -1,0 +1,128 @@
+{% extends "users/base.html" %}
+{% block title %} ЖҮЙЕГЕ КІРУ {% endblock title%}
+{% block content %}
+    <div class="form-content my-3 p-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3">
+                        <div style="background-color: rgba(65,195,121,.5)">
+                          <h3 class="font-weight-light my-1 text-center" style="font-family: 'KZ Cooper';font-weight: bold;
+                          color: #00750D;
+                          text-shadow: 
+                          -0   -1px 0   #FFFFFF,
+                          0   -1px 0   #FFFFFF,
+                         -0    1px 0   #FFFFFF,
+                          0    1px 0   #FFFFFF,
+                         -1px -0   0   #FFFFFF,
+                          1px -0   0   #FFFFFF,
+                         -1px  0   0   #FFFFFF,
+                          1px  0   0   #FFFFFF,
+                         -1px -1px 0   #FFFFFF,
+                          1px -1px 0   #FFFFFF,
+                         -1px  1px 0   #FFFFFF,
+                          1px  1px 0   #FFFFFF,
+                         -1px -1px 0   #FFFFFF,
+                          1px -1px 0   #FFFFFF,
+                         -1px  1px 0   #FFFFFF,
+                          1px  1px 0   #FFFFFF;">Жүйеге <br> кіру</h3>
+                        </div>
+                        {% if form.errors %}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <div id="form_errors">
+                                    {% for key, value in form.errors.items %}
+                                        <strong>{{ value }}</strong>
+                                    {% endfor %}
+                                </div>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endif %}
+                        <div class="card-body"  style="background-color:rgba(210,247,221,0.8)">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="col-md-10 offset-md-1">
+                                        <div class="form-group">
+                                            
+                                            <p class="text-center"><strong></strong></p>
+                                            <hr>
+                                            <label class="small mb-1" style="font-family: 'KZ Cooper';font-weight: bold;
+                                            color: #00750D;
+                                            text-shadow: 
+                                            -0   -1px 0   #FFFFFF,
+                                            0   -1px 0   #FFFFFF,
+                                           -0    1px 0   #FFFFFF,
+                                            0    1px 0   #FFFFFF,
+                                           -1px -0   0   #FFFFFF,
+                                            1px -0   0   #FFFFFF,
+                                           -1px  0   0   #FFFFFF,
+                                            1px  0   0   #FFFFFF,
+                                           -1px -1px 0   #FFFFFF,
+                                            1px -1px 0   #FFFFFF,
+                                           -1px  1px 0   #FFFFFF,
+                                            1px  1px 0   #FFFFFF,
+                                           -1px -1px 0   #FFFFFF,
+                                            1px -1px 0   #FFFFFF,
+                                           -1px  1px 0   #FFFFFF,
+                                            1px  1px 0   #FFFFFF;">Қолданушы аты</label>
+                                            {{ form.username }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-10 offset-md-1">
+                                        <div class="form-group">
+                                          <label class="small mb-1" style="font-family: 'KZ Cooper';font-weight: bold;
+                                          color: #00750D;
+                                          text-shadow: 
+                                          -0   -1px 0   #FFFFFF,
+                                          0   -1px 0   #FFFFFF,
+                                         -0    1px 0   #FFFFFF,
+                                          0    1px 0   #FFFFFF,
+                                         -1px -0   0   #FFFFFF,
+                                          1px -0   0   #FFFFFF,
+                                         -1px  0   0   #FFFFFF,
+                                          1px  0   0   #FFFFFF,
+                                         -1px -1px 0   #FFFFFF,
+                                          1px -1px 0   #FFFFFF,
+                                         -1px  1px 0   #FFFFFF,
+                                          1px  1px 0   #FFFFFF,
+                                         -1px -1px 0   #FFFFFF,
+                                          1px -1px 0   #FFFFFF,
+                                         -1px  1px 0   #FFFFFF,
+                                          1px  1px 0   #FFFFFF;">Құпия сөз</label>
+                                          {{ form.password }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-10 offset-md-1">
+                                        <div class="form-group">
+                                            <!-- Add a Remember me functionality -->
+                                            {{ form.remember_me }}
+                                            <label> Сақтау</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-10 offset-md-1">
+                                        <div class="form-group mt-0 mb-1">
+                                          <button name="login" class="col-md-12 btn btn-dark" id="login"  style="background: #77b48f;">Кіру</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-center">
+                            <div class="small">
+                                <a href="{% url 'register' %}" style="color:#16bc57;">Сілтеме бойынша тіркеліңіз</a><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+{% endblock content %}
