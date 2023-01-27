@@ -23,6 +23,30 @@ COMPANY_RATE_CHOICES=(
 
 
 # Create your models here.
+class AnswerModel(models.Model):
+    text = models.TextField(null=False, blank=False)
+
+    def __str__(self):
+        return self.text
+
+class QuestionModel(models.Model):
+    text = models.TextField(null=False, blank=False)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    correct_answer = models.ForeignKey(AnswerModel, on_delete=models.CASCADE,
+                                       related_name='correct_answer')
+    other_answers = models.ManyToManyField(AnswerModel, related_name='other_answers')
+
+    def __str__(self):
+        return self.text
+
+class QuizModel(models.Model):
+    title = models.CharField(max_length=100, null=False, blank=False)
+    questions = models.ManyToManyField(QuestionModel)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
 class Company(models.Model):
     company_name=models.CharField(verbose_name='Курс тақырыбы',max_length=40,blank=True)
     company_about=models.TextField(verbose_name='Курс сипаттамасы',blank=True)

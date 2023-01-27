@@ -54,6 +54,73 @@ def addnewcomp(request):
         form=CompForm()
     return render(request,'handbook/newcompform.html',{'form':form})
 
+def addnewtest(request):
+    if request.method=='POST':
+        form=CompForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('main_page')
+    else:
+        form=CompForm()
+    return render(request,'handbook/newtestform.html',{'form':form})
+
+def createnewquestion(request):
+    if request.method=='POST':
+        question_title=request.POST.get('newquestionn')
+        answer1 = AnswerModel(text=request.POST.get('newanswer1'))
+        answer1.save()
+        answer2 = AnswerModel(text=request.POST.get('newanswer2'))
+        answer2.save()
+        answer3 = AnswerModel(text=request.POST.get('newanswer3'))
+        answer3.save()
+        answer4 = AnswerModel(text=request.POST.get('newanswer4'))
+        answer4.save()
+        rightanswer = request.POST.get('answer')
+
+        if rightanswer=='1':
+            question=QuestionModel(text=question_title,correct_answer=answer1,author=request.user)
+            question.save()
+            question.other_answers.add(answer2)
+            question.other_answers.add(answer3)
+            question.other_answers.add(answer4)
+            question.save()
+        elif rightanswer=='2':
+            question = QuestionModel(text=question_title, correct_answer=answer2,author=request.user)
+            question.save()
+            question.other_answers.add(answer1)
+            question.other_answers.add(answer3)
+            question.other_answers.add(answer4)
+            question.save()
+        elif rightanswer=='3':
+            question = QuestionModel(text=question_title, correct_answer=answer3,author=request.user)
+            question.save()
+            question.other_answers.add(answer1)
+            question.other_answers.add(answer2)
+            question.other_answers.add(answer4)
+            question.save()
+        elif rightanswer=='4':
+            question = QuestionModel(text=question_title, correct_answer=answer4,author=request.user)
+            question.save()
+            question.other_answers.add(answer1)
+            question.other_answers.add(answer3)
+            question.other_answers.add(answer2)
+            question.save()
+        return redirect(createnewtest)
+    else:
+        return render(request,'handbook/createnewquestion.html')
+
+def createnewtest(request):
+    if request.method=='POST':
+        title=request.POST.get('title')
+        questions=request.POST.get('select_test')
+        print(questions)
+        return redirect(createnewtest)
+    else:
+        if QuestionModel.objects.filter(author=request.user).exists:
+            query=QuestionModel.objects.filter(author=request.user)
+            return render(request,'handbook/createnewtest.html',{'questions':query})
+        else:
+            return render(request, 'handbook/createnewtest.html', {'questions': []})
 def paint(request):
     return render(request,'painting/index.html')
 

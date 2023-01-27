@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New question</title>
+</head>
+<body>
+<form method="POST" action="{% url 'createquestion' %}">
+    {% csrf_token %}
+    <label for="newquestion">Жаңа сұрақ енгізіңіз</label>
+    <input type="text" id="newquestion" name="newquestionn" required="required">
+    <br><br>
+
+    <input type="radio" value="1" name="answer" required="required">
+    <label for="newanswer1">Жауап енгіңзіңіз</label>
+    <input type="text" id="newanswer1" name="newanswer1">
+    <br>
+
+    <input type="radio" value="2" name="answer" required="required">
+    <label for="newanswer2">Жауап енгіңзіңіз</label>
+    <input type="text" id="newanswer2" name="newanswer2">
+    <br>
+
+    <input type="radio" value="3" name="answer" required="required">
+    <label for="newanswer3">Жауап енгіңзіңіз</label>
+    <input type="text" id="newanswer3" name="newanswer3">
+    <br>
+
+    <input type="radio" value="4" name="answer" required="required">
+    <label for="newanswer4">Жауап енгіңзіңіз</label>
+    <input type="text" id="newanswer4" name="newanswer4">
+    <br>
+
+    <input type="submit" value="Сұрақты сақтаңыз">
+
+</form>
+</body>
+</html>
