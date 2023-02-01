@@ -54,15 +54,9 @@ def addnewcomp(request):
         form=CompForm()
     return render(request,'handbook/newcompform.html',{'form':form})
 
-def addnewtest(request):
-    if request.method=='POST':
-        form=CompForm(request.POST,request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('main_page')
-    else:
-        form=CompForm()
-    return render(request,'handbook/newtestform.html',{'form':form})
+def addnewtest(request, pk):
+    query = QuizModel.objects.filter(company=Company.objects.get(pk=pk))
+    return render(request,'handbook/newtestform.html',{'tests':query, 'company':Company.objects.get(pk=pk)})
 
 def createnewquestion(request):
     if request.method=='POST':
@@ -105,22 +99,50 @@ def createnewquestion(request):
             question.other_answers.add(answer3)
             question.other_answers.add(answer2)
             question.save()
-        return redirect(createnewtest)
+        return render(request,'handbook/createnewquestion.html')
     else:
         return render(request,'handbook/createnewquestion.html')
 
-def createnewtest(request):
-    if request.method=='POST':
-        title=request.POST.get('title')
-        questions=request.POST.get('select_test')
-        print(questions)
-        return redirect(createnewtest)
+def createnewtest(request,pk):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        questions = request.POST.getlist('select_test')
+        new_test = QuizModel(title=title, author=request.user, company=Company.objects.get(pk=pk))
+        new_test.save()
+        for question_id in questions:
+            new_test.questions.add(QuestionModel.objects.get(id=question_id))
+        new_test.save()
+        return redirect(addnewtest,pk=pk)
     else:
         if QuestionModel.objects.filter(author=request.user).exists:
-            query=QuestionModel.objects.filter(author=request.user)
-            return render(request,'handbook/createnewtest.html',{'questions':query})
+            query = QuestionModel.objects.filter(author=request.user)
+            return render(request, 'handbook/createnewtest.html', {'questions': query,'company':Company.objects.get(pk=pk)})
         else:
-            return render(request, 'handbook/createnewtest.html', {'questions': []})
+            return render(request, 'handbook/createnewtest.html', {'questions': [],'company':Company.objects.get(pk=pk)})
+
+def test_detail(request,pk):
+    if request.method=='GET':
+        query = QuizModel.objects.get(pk=pk)
+        return render(request, 'handbook/test_detail.html',{'test':query})
+    else:
+        s = 0
+        ss = 0
+        for i in QuizModel.objects.get(pk=pk).questions.all():
+            #print(request.POST.get('1_answer'))
+            answer_id = i.correct_answer.id
+            checked_id = request.POST.get(str(i.id)+'_answer')
+            #increment = AnswerModel.objects.get(correct_answer=i)
+            print(answer_id)
+            print(checked_id)
+
+            if answer_id == checked_id:
+                s+=1
+            else:
+                ss+=1
+        print('Дұрыс жауаптар: ',s)
+        print('Қате жауаптар: ', ss)
+
+        return render(request, 'handbook/test_detail.html',{'test':AnswerModel.objects.get(pk=pk)})
 def paint(request):
     return render(request,'painting/index.html')
 

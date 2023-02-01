@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/JavaScript">
+    function colnames(){
+        colordisplay = document.querySelector('input[name=1_answer]:checked').value;
+        alert('Hello world');
+    }
+</script>
+</head>
+<body>
+    <h1>{{test.title}}</h1>
+    <form method="POST" action="">
+        {% csrf_token %}
+        {% for question in test.questions.all %}
+            <h3>{{question.text}}</h3>
+
+            {% for answer in question.other_answers.all %}
+                <input type="radio" value="{{answer.id}}" name="{{question.id}}_answer" required="required">{{answer}}</input><br>
+            {% endfor %}
+            <input type="radio" value="{{answer.id}}" name="{{question.id}}_answer" required="required">{{question.correct_answer}}</input>
+
+
+        {% endfor %}
+        <h3><input type="submit" onclick="colnames()" value="Тест тексеру" style="box-shadow: 3px 4px 0px 0px #3dc21b;
+        background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+        background-color:#44c767;
+        border-radius:15px;
+        border:1px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:'KZ Cooper';
+        font-size:17px;
+        padding:7px 25px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #2f6627;"></h3>
+    </form>
+
+</body>
+</html>

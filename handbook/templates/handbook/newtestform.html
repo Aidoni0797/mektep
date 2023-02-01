@@ -394,9 +394,11 @@
       </div>
 
       <div class="regform" style="padding:100px;background:url({% static 'img/13.jpg' %});margin-left:0px;background-size: 100% 100%;">
-        <a href="{% url 'createtest' %}"><button>ЖАҢА ТЕСТ ҚОСУ</button></a>
+        <a href="{% url 'createtest' pk=company.pk %}"><button>ЖАҢА ТЕСТ ҚОСУ</button></a>
     </div>
-
+    {% for test in tests %}
+      <a href="{% url 'testdetail' pk=test.pk %}">{{test.title}}</a>
+    {% endfor %}
 </div>
 
 

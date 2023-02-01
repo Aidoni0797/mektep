@@ -508,7 +508,7 @@
                 <a class="btn btn-primary" href="{% url 'upload_display_video' %}" style="width: 100%; height: 50px;margin:5px;">&#128249;<br>ВИДЕО</a>
               </div>
               <div class="col-xs-6 col-md-2" style="margin-top:10px;">
-                <a class="btn btn-primary" href="{% url 'addnewtest' %}" style="width: 100%; height: 50px;margin:5px;">&#128221;<br>ТЕСТ</a>
+                <a class="btn btn-primary" href="{% url 'addnewtest' pk=company.pk %}" style="width: 100%; height: 50px;margin:5px;">&#128221;<br>ТЕСТ</a>
               </div>
               <div class="col-xs-6 col-md-2" style="margin-top:10px;">
                 <a class="btn btn-primary" href="{% url 'editcompany' pk=company.pk  %}" style="width: 100%; height: 50px;margin:5px;">&#128276;<br>ТАПСЫРУ</a>

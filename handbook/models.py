@@ -39,13 +39,7 @@ class QuestionModel(models.Model):
     def __str__(self):
         return self.text
 
-class QuizModel(models.Model):
-    title = models.CharField(max_length=100, null=False, blank=False)
-    questions = models.ManyToManyField(QuestionModel)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.title
 
 class Company(models.Model):
     company_name=models.CharField(verbose_name='Курс тақырыбы',max_length=40,blank=True)
@@ -67,6 +61,14 @@ class Company(models.Model):
 
     def __str__(self):
         return self.company_name
+
+class QuizModel(models.Model):
+    title = models.CharField(max_length=100, null=False, blank=False)
+    questions = models.ManyToManyField(QuestionModel)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.title
 
 class Rate(models.Model):
     company=models.ForeignKey(Company,on_delete=models.CASCADE)
