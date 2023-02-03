@@ -392,13 +392,60 @@
       <br><br>
 
       </div>
+<div class="wrapper row3">
+  <main class="hoc container clear">
+      <div class="row">
+      <div class="regform" style="background:url({% static 'img/13.jpg' %});margin-left:0px;background-size: 100% 100%;">
+        <center><a href="{% url 'createtest' pk=company.pk %}"><button style="box-shadow: 3px 4px 0px 0px #3dc21b;
+        background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+        background-color:#44c767;
+        border-radius:15px;
+        border:1px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:'KZ Cooper';
+        font-size:17px;
+        padding:7px 25px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #2f6627;"><img src="/static/img/1005.svg" style="width:39px;height:39px;">ЖАҢА ТЕСТ ҚОСУ<img src="/static/img/1005.svg" style="width:39px;height:39px;"></button></a>
+        </center></div><br><hr>
+        <style>
+          #element {
+            overflow-y: scroll;
+            background-color: #ffffff;
+            width: 50%;
+            height: 500px;
+          }
 
-      <div class="regform" style="padding:100px;background:url({% static 'img/13.jpg' %});margin-left:0px;background-size: 100% 100%;">
-        <a href="{% url 'createtest' pk=company.pk %}"><button>ЖАҢА ТЕСТ ҚОСУ</button></a>
-    </div>
-    {% for test in tests %}
-      <a href="{% url 'testdetail' pk=test.pk %}">{{test.title}}</a>
-    {% endfor %}
+          .overflow {
+            min-height: 400px;
+          }
+          #element::-webkit-scrollbar {
+              width: 7px;
+              background-color: #f9f9fd;
+          }
+        </style>
+        <div id="element" ><div class="overflow">
+        {% for test in tests %}
+          <a href="{% url 'testdetail' pk=test.pk %}"><button style="box-shadow: 3px 4px 0px 0px #3dc21b;
+        background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+        background-color:#44c767;
+        border-radius:15px;
+        border:1px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:'KZ Cooper';
+        font-size:17px;
+        padding:7px 25px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #2f6627;margin:15px;"><img src="/static/img/1005.svg" style="width:39px;height:39px;">{{test.title}}</button></a><br>
+        {% endfor %}
+        </div></div></div>
+  </main>
+</div>
+
 </div>
 
 

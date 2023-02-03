@@ -34,7 +34,15 @@ class CompForm(forms.ModelForm):
                              max_length=30,
                              required=False)
     fields=('company_name','company_about','comapny_category','company_email','company_phone','company_logo','company_video',)
-    
+
+
+class FirstWeek(forms.ModelForm):
+    class Meta:
+        model = FirstWeek
+        firstweek_name = forms.CharField(label='First week',
+                                       max_length=30,
+                                       required=False)
+        fields = ('firstweek_name', 'firstweek_definition', 'comapny_category',)
 
 class ExampleForm(forms.Form):
     like_website = forms.TypedChoiceField(

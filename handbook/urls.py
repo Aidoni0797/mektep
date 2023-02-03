@@ -24,5 +24,7 @@ urlpatterns = [
     path('video/', views.upload_display_video, name='upload_display_video'),
     #path('register/', RegisterView.as_view(), name='users-register'),
     path('profile/',views.profile, name='users-profile'),
+    path('firstweek/',views.addnewfirstweek,name='firstweek'),
+    path('aidana/',views.addnewfirstweek, name='aidana'),
     path('paint/',views.paint, name='paint'),
 ]

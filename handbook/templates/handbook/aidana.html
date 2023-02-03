@@ -1,0 +1,840 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% comment %} {% crispy example_form example_form.helper %} {% endcomment %}
+<html lang="en">
+<head>
+<title>Мектепке дейінгі және дайындық курстары</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{% static 'css/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+<link href="{% static 'css/style1.css' %}" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css" integrity="sha512-T584yQ/tdRR5QwOpfvDfVQUidzfgc2339Lc8uBDtcp/wYu80d7jwBgAxbyMh0a9YM9F8N3tdErpFI8iaGx6x5g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  .preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  /* фоновый цвет */
+  background: #e0e0e0;
+  z-index: 1001;
+}
+
+.preloader__image {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  margin-left: -35px;
+  text-align: center;
+  animation: preloader-rotate 2s infinite linear;
+}
+
+@keyframes preloader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.3s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
+@font-face {
+  font-family:'Cooper';
+  src: url('Сooper.ttf');
+ }
+</style>
+</head>
+<body id="top" style="background:#ffffff;">
+
+  <div class="preloader">
+    <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+      <path fill="currentColor"
+        d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
+      </path>
+    </svg>
+  </div>
+<div class="" style="background-image:url({% static 'img/education.png' %});background-size: 100% 100%;">
+  <header id="header" class="hoc clear">
+    <div id="logo" class="one_quarter first">
+      <h1><a href="#" style="font-family: 'KZ Cooper';font-weight: bold;
+        color: #00750D;
+        text-shadow:
+		-0   -2px 0   #FFFFFF,
+		 0   -2px 0   #FFFFFF,
+		-0    2px 0   #FFFFFF,
+		 0    2px 0   #FFFFFF,
+		-2px -0   0   #FFFFFF,
+		 2px -0   0   #FFFFFF,
+		-2px  0   0   #FFFFFF,
+		 2px  0   0   #FFFFFF,
+		-1px -2px 0   #FFFFFF,
+		 1px -2px 0   #FFFFFF,
+		-1px  2px 0   #FFFFFF,
+		 1px  2px 0   #FFFFFF,
+		-2px -1px 0   #FFFFFF,
+		 2px -1px 0   #FFFFFF,
+		-2px  1px 0   #FFFFFF,
+		 2px  1px 0   #FFFFFF,
+		-2px -2px 0   #FFFFFF,
+		 2px -2px 0   #FFFFFF,
+		-2px  2px 0   #FFFFFF,
+		 2px  2px 0   #FFFFFF,
+		-2px -2px 0   #FFFFFF,
+		 2px -2px 0   #FFFFFF,
+		-2px  2px 0   #FFFFFF,
+		 2px  2px 0   #FFFFFF;">Мектепке </a></h1>
+      <p style="font-family: 'KZ Cooper';font-weight: bold;
+      color: #00750D;
+      text-shadow:
+      -0   -1px 0   #FFFFFF,
+      0   -1px 0   #FFFFFF,
+     -0    1px 0   #FFFFFF,
+      0    1px 0   #FFFFFF,
+     -1px -0   0   #FFFFFF,
+      1px -0   0   #FFFFFF,
+     -1px  0   0   #FFFFFF,
+      1px  0   0   #FFFFFF,
+     -1px -1px 0   #FFFFFF,
+      1px -1px 0   #FFFFFF,
+     -1px  1px 0   #FFFFFF,
+      1px  1px 0   #FFFFFF,
+     -1px -1px 0   #FFFFFF,
+      1px -1px 0   #FFFFFF,
+     -1px  1px 0   #FFFFFF,
+      1px  1px 0   #FFFFFF;">дейінгі және дайындық курсы</p>
+    </div>
+    <div class="three_quarter">
+      <ul class="nospace clear">
+        <li class="one_third first">
+          <div class="block clear"><a href="#"><i class="fas fa-phone"></i></a> <span><strong>Қоңырау шалыңыз:</strong></span></div>
+        </li>
+        <li class="one_third">
+          <div class="block clear"><a href="#"><i class="fas fa-envelope"></i></a> <span><strong>Хабарлама жолдаңыз:</strong> </span></div>
+        </li>
+        <li class="one_third">
+          <div class="block clear"><a href="#"><i class="fas fa-clock"></i></a> <span><strong> Дүйсенбі - Жұма:</strong> 08.00 - 18.00</span></div>
+        </li>
+      </ul>
+    </div>
+
+  </header>
+
+  <section id="navwrapper" class="hoc clear">
+
+    <nav id="mainav">
+      <ul class="clear">
+        <li class="active"><a href="{% url 'main_page' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+          color: #00750D;
+          text-shadow:
+          -0   -1px 0   #FFFFFF,
+          0   -1px 0   #FFFFFF,
+         -0    1px 0   #FFFFFF,
+          0    1px 0   #FFFFFF,
+         -1px -0   0   #FFFFFF,
+          1px -0   0   #FFFFFF,
+         -1px  0   0   #FFFFFF,
+          1px  0   0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF;"><img src="{% static 'img/123.svg' %}" style="position:relative;"><br>Басты</a></li>
+        <li><a class="drop" href="#"  style="font-family: 'KZ Cooper';font-weight: bold;
+          color: #00750D;
+          text-shadow:
+          -0   -1px 0   #FFFFFF,
+          0   -1px 0   #FFFFFF,
+         -0    1px 0   #FFFFFF,
+          0    1px 0   #FFFFFF,
+         -1px -0   0   #FFFFFF,
+          1px -0   0   #FFFFFF,
+         -1px  0   0   #FFFFFF,
+          1px  0   0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF;"><img src="{% static 'img/456.svg' %}" style="position:relative;"><br>Курстар</a>
+          <ul>
+            <li><a href="{% url 'ishop'%}" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow:
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">3 жас</a></li>
+            <li><a href="{% url 'smarket'%}" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow:
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">4 жас</a></li>
+            <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow:
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">5 жас</a></li>
+            <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow:
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">6 жас</a></li>
+            <li><a href="{% url 'paint' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow:
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">Сурет салу</a></li>
+            <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow:
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">Жаңалық</a></li>
+          </ul>
+        </li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'aidana'%}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1002.svg' %}" style="position:relative;width:70px;height:70px;"><br>{{ user.get_username }}</a></li>
+          <li><a href="{% url 'logout'%}?next={{request.path}}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1003.svg' %}" style="margin-left:35px;margin:5px;width:59px;height:59px;position:relative;"><br>Шығу</a></li>
+          <li><a href="{% url 'addnew' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1001.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>КУРСТАРЫМ</a></li>
+            <li><a href="#" style="font-family: 'KZ Cooper';font-weight: bold;
+              color: #00750D;
+              text-shadow:
+              -0   -1px 0   #FFFFFF,
+              0   -1px 0   #FFFFFF,
+             -0    1px 0   #FFFFFF,
+              0    1px 0   #FFFFFF,
+             -1px -0   0   #FFFFFF,
+              1px -0   0   #FFFFFF,
+             -1px  0   0   #FFFFFF,
+              1px  0   0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF,
+             -1px -1px 0   #FFFFFF,
+              1px -1px 0   #FFFFFF,
+             -1px  1px 0   #FFFFFF,
+              1px  1px 0   #FFFFFF;"><img src="{% static 'img/1007.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>ОҚУШЫЛАРЫМ</a>
+              <ul>
+                <li><a href="{% url 'children' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+                  color: #00750D;
+                  text-shadow:
+                  -0   -1px 0   #FFFFFF,
+                  0   -1px 0   #FFFFFF,
+                 -0    1px 0   #FFFFFF,
+                  0    1px 0   #FFFFFF,
+                 -1px -0   0   #FFFFFF,
+                  1px -0   0   #FFFFFF,
+                 -1px  0   0   #FFFFFF,
+                  1px  0   0   #FFFFFF,
+                 -1px -1px 0   #FFFFFF,
+                  1px -1px 0   #FFFFFF,
+                 -1px  1px 0   #FFFFFF,
+                  1px  1px 0   #FFFFFF,
+                 -1px -1px 0   #FFFFFF,
+                  1px -1px 0   #FFFFFF,
+                 -1px  1px 0   #FFFFFF,
+                  1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">3 жас</a></li>
+                <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+                  color: #00750D;
+                  text-shadow:
+                  -0   -1px 0   #FFFFFF,
+                  0   -1px 0   #FFFFFF,
+                 -0    1px 0   #FFFFFF,
+                  0    1px 0   #FFFFFF,
+                 -1px -0   0   #FFFFFF,
+                  1px -0   0   #FFFFFF,
+                 -1px  0   0   #FFFFFF,
+                  1px  0   0   #FFFFFF,
+                 -1px -1px 0   #FFFFFF,
+                  1px -1px 0   #FFFFFF,
+                 -1px  1px 0   #FFFFFF,
+                  1px  1px 0   #FFFFFF,
+                 -1px -1px 0   #FFFFFF,
+                  1px -1px 0   #FFFFFF,
+                 -1px  1px 0   #FFFFFF,
+                  1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">4 жас</a></li>
+                <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+                  color: #00750D;
+                  text-shadow:
+                  -0   -1px 0   #FFFFFF,
+                  0   -1px 0   #FFFFFF,
+                 -0    1px 0   #FFFFFF,
+                  0    1px 0   #FFFFFF,
+                 -1px -0   0   #FFFFFF,
+                  1px -0   0   #FFFFFF,
+                 -1px  0   0   #FFFFFF,
+                  1px  0   0   #FFFFFF,
+                 -1px -1px 0   #FFFFFF,
+                  1px -1px 0   #FFFFFF,
+                 -1px  1px 0   #FFFFFF,
+                  1px  1px 0   #FFFFFF,
+                 -1px -1px 0   #FFFFFF,
+                  1px -1px 0   #FFFFFF,
+                 -1px  1px 0   #FFFFFF,
+                  1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">5 жас</a></li>
+                <li><a href="" style="font-family: 'KZ Cooper';font-weight: bold;
+                  color: #00750D;
+                  text-shadow:
+                  -0   -1px 0   #FFFFFF,
+                  0   -1px 0   #FFFFFF,
+                 -0    1px 0   #FFFFFF,
+                  0    1px 0   #FFFFFF,
+                 -1px -0   0   #FFFFFF,
+                  1px -0   0   #FFFFFF,
+                 -1px  0   0   #FFFFFF,
+                  1px  0   0   #FFFFFF,
+                 -1px -1px 0   #FFFFFF,
+                  1px -1px 0   #FFFFFF,
+                 -1px  1px 0   #FFFFFF,
+                  1px  1px 0   #FFFFFF,
+                 -1px -1px 0   #FFFFFF,
+                  1px -1px 0   #FFFFFF,
+                 -1px  1px 0   #FFFFFF,
+                  1px  1px 0   #FFFFFF;"><img src="{% static 'img/1005.svg' %}" style="width:39px;height:39px;">6 жас</a></li>
+              </ul>
+            </li>
+        {% else %}
+        <li><a href="{% url 'login' %}?next={{request.path}}" style="font-family: 'KZ Cooper';font-weight: bold;
+          color: #00750D;
+          text-shadow:
+          -0   -1px 0   #FFFFFF,
+          0   -1px 0   #FFFFFF,
+         -0    1px 0   #FFFFFF,
+          0    1px 0   #FFFFFF,
+         -1px -0   0   #FFFFFF,
+          1px -0   0   #FFFFFF,
+         -1px  0   0   #FFFFFF,
+          1px  0   0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF;"><img src="{% static 'img/789.svg' %}" style="position:relative;width:54px;height:54px;"><br>Кіру</a></li>
+        <li><a href="{% url 'register' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+          color: #00750D;
+          text-shadow:
+          -0   -1px 0   #FFFFFF,
+          0   -1px 0   #FFFFFF,
+         -0    1px 0   #FFFFFF,
+          0    1px 0   #FFFFFF,
+         -1px -0   0   #FFFFFF,
+          1px -0   0   #FFFFFF,
+         -1px  0   0   #FFFFFF,
+          1px  0   0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF,
+         -1px -1px 0   #FFFFFF,
+          1px -1px 0   #FFFFFF,
+         -1px  1px 0   #FFFFFF,
+          1px  1px 0   #FFFFFF;"><img src="{% static 'img/999.svg' %}" style="position:relative;width:60px;height:60px;"><br>Тіркелу</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+
+
+  </section>
+<br><br>
+
+      </div>
+  <div class="wrapper row3">
+  <main class="hoc container clear">
+      <div class="row">
+<center><h1 style="text-transform:uppercase;font-size:30px;font-family: 'KZ Cooper';font-weight: bold;
+      color: #00750D;
+      text-shadow:
+		-0   -6px 0   #FFFFFF,
+		 0   -6px 0   #FFFFFF,
+		-0    6px 0   #FFFFFF,
+		 0    6px 0   #FFFFFF,
+		-6px -0   0   #FFFFFF,
+		 6px -0   0   #FFFFFF,
+		-6px  0   0   #FFFFFF,
+		 6px  0   0   #FFFFFF,
+		-1px -6px 0   #FFFFFF,
+		 1px -6px 0   #FFFFFF,
+		-1px  6px 0   #FFFFFF,
+		 1px  6px 0   #FFFFFF,
+		-6px -1px 0   #FFFFFF,
+		 6px -1px 0   #FFFFFF,
+		-6px  1px 0   #FFFFFF,
+		 6px  1px 0   #FFFFFF,
+		-2px -6px 0   #FFFFFF,
+		 2px -6px 0   #FFFFFF,
+		-2px  6px 0   #FFFFFF,
+		 2px  6px 0   #FFFFFF,
+		-6px -2px 0   #FFFFFF,
+		 6px -2px 0   #FFFFFF,
+		-6px  2px 0   #FFFFFF,
+		 6px  2px 0   #FFFFFF,
+		-3px -6px 0   #FFFFFF,
+		 3px -6px 0   #FFFFFF,
+		-3px  6px 0   #FFFFFF,
+		 3px  6px 0   #FFFFFF,
+		-6px -3px 0   #FFFFFF,
+		 6px -3px 0   #FFFFFF,
+		-6px  3px 0   #FFFFFF,
+		 6px  3px 0   #FFFFFF,
+		-4px -6px 0   #FFFFFF,
+		 4px -6px 0   #FFFFFF,
+		-4px  6px 0   #FFFFFF,
+		 4px  6px 0   #FFFFFF,
+		-6px -4px 0   #FFFFFF,
+		 6px -4px 0   #FFFFFF,
+		-6px  4px 0   #FFFFFF,
+		 6px  4px 0   #FFFFFF,
+		-5px -6px 0   #FFFFFF,
+		 5px -6px 0   #FFFFFF,
+		-5px  6px 0   #FFFFFF,
+		 5px  6px 0   #FFFFFF,
+		-6px -5px 0   #FFFFFF,
+		 6px -5px 0   #FFFFFF,
+		-6px  5px 0   #FFFFFF,
+		 6px  5px 0   #FFFFFF,
+		-6px -6px 0   #FFFFFF,
+		 6px -6px 0   #FFFFFF,
+		-6px  6px 0   #FFFFFF,
+		 6px  6px 0   #FFFFFF,
+		-6px -6px 0   #FFFFFF,
+		 6px -6px 0   #FFFFFF,
+		-6px  6px 0   #FFFFFF,
+		 6px  6px 0   #FFFFFF;">Оқыту және дамыту жоспары</h1></center>
+
+<hr>
+
+
+      <style>
+        .demo {
+    width: 100%;
+    padding: 0 20px;
+    margin: 5% 10%;
+}
+/* скрываем чекбоксы и блоки с содержанием */
+.hide,
+.hide + label ~ div {
+    display: none;
+}
+/* вид текста label */
+.hide + label {
+    margin: 0;
+    padding: 0;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+}
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: red;
+    border-bottom: 0;
+}
+.hide:checked + label + div {
+    display: block;
+    background: #efefef;
+    margin-left: 20px;
+    padding: 10px;
+    width:100%;
+     -webkit-animation:fade ease-in 0.5s;
+     -moz-animation:fade ease-in 0.5s;
+     animation:fade ease-in 0.5s;
+}
+/* анимация при появлении скрытых блоков */
+@-moz-keyframes fade {
+    from { opacity: 0; }
+to { opacity: 1 }
+}
+@-webkit-keyframes fade {
+    from { opacity: 0; }
+to { opacity: 1 }
+}
+@keyframes fade {
+    from { opacity: 0; }
+to { opacity: 1 }
+}
+.hide + label:before {
+    background-color: #1e90ff;
+    color: #fff;
+    content: "\002B";
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    height: 16px;
+    line-height: 16px;
+    margin: 3px 5px;
+    text-align: center;
+    width: 16px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.hide:checked + label:before {
+    content: "\2212";
+}
+      </style>
+        <div class="demo">
+    <input class="hide" id="hd-1" type="checkbox">
+    <label for="hd-1"><h5 style="margin:5px;cursor:pointer;width:auto;background:#f07889;color:#ffffff;padding:5px;border-radius:15px;text-transform:uppercase;"><img src="/static/img/1005.svg" style="width:12px;height:12px;">1<img src="/static/img/1005.svg" style="width:12px;height:12px;"><br>апта</h5></label>
+    <div style="width:100%;background:#f07889;">
+        <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+            {{ form|crispy}}
+
+
+    <br><br>
+
+          <input type="submit" value="Тапсырманы сақтаңыз" style="box-shadow: 3px 4px 0px 0px #3dc21b;
+        background:linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+        background-color:#44c767;
+        border-radius:15px;
+        border:1px solid #18ab29;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:'KZ Cooper';
+        font-size:17px;
+        padding:7px 25px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #2f6627;"></form>
+    </div>
+        <br/>
+        <br/>
+    <input class="hide" id="hd-2" type="checkbox">
+    <label for="hd-2"><h5 style="margin:5px;cursor:pointer;width:auto;background:#ff933e;color:#ffffff;padding:5px;border-radius:15px;text-transform:uppercase;"><img src="/static/img/1005.svg" style="width:12px;height:12px;">2<img src="/static/img/1005.svg" style="width:12px;height:12px;"><br>апта</h5></label>
+    <div>
+        CSS - CSS Cascading Style Sheets — каскадные таблицы стилей — формальный язык описания внешнего вида документа, написанного с использованием языка разметки. Преимущественно используется как средство описания, оформления внешнего вида веб-страниц, написанных с помощью языков разметки HTML и XHTML, но может также применяться к любым XML-документам, например, к SVG или XUL.
+    </div>
+          <br/>
+        <br/>
+    <input class="hide" id="hd-3" type="checkbox">
+    <label for="hd-3"><h5 style="margin:5px;cursor:pointer;width:auto;background:#fce45f;color:#ffffff;padding:5px;border-radius:15px;text-transform:uppercase;"><img src="/static/img/1005.svg" style="width:12px;height:12px;">3<img src="/static/img/1005.svg" style="width:12px;height:12px;"><br>апта</h5></label>
+    <div>
+        CSS - CSS Cascading Style Sheets — каскадные таблицы стилей — формальный язык описания внешнего вида документа, написанного с использованием языка разметки. Преимущественно используется как средство описания, оформления внешнего вида веб-страниц, написанных с помощью языков разметки HTML и XHTML, но может также применяться к любым XML-документам, например, к SVG или XUL.
+    </div>
+             <br/>
+        <br/>
+    <input class="hide" id="hd-4" type="checkbox">
+    <label for="hd-4"><h5 style="margin:5px;cursor:pointer;width:auto;background:#71c166;color:#ffffff;padding:5px;border-radius:15px;text-transform:uppercase;"><img src="/static/img/1005.svg" style="width:12px;height:12px;">4<img src="/static/img/1005.svg" style="width:12px;height:12px;"><br>апта</h5></label>
+    <div>
+        CSS - CSS Cascading Style Sheets — каскадные таблицы стилей — формальный язык описания внешнего вида документа, написанного с использованием языка разметки. Преимущественно используется как средство описания, оформления внешнего вида веб-страниц, написанных с помощью языков разметки HTML и XHTML, но может также применяться к любым XML-документам, например, к SVG или XUL.
+    </div>
+                <br/>
+        <br/>
+    <input class="hide" id="hd-5" type="checkbox">
+    <label for="hd-5"><h5 style="margin:5px;cursor:pointer;width:auto;background:#70f1f5;color:#ffffff;padding:5px;border-radius:15px;text-transform:uppercase;"><img src="/static/img/1005.svg" style="width:12px;height:12px;">5<img src="/static/img/1005.svg" style="width:12px;height:12px;"><br>апта</h5></label>
+    <div>
+        CSS - CSS Cascading Style Sheets — каскадные таблицы стилей — формальный язык описания внешнего вида документа, написанного с использованием языка разметки. Преимущественно используется как средство описания, оформления внешнего вида веб-страниц, написанных с помощью языков разметки HTML и XHTML, но может также применяться к любым XML-документам, например, к SVG или XUL.
+    </div>
+                  <br/>
+        <br/>
+    <input class="hide" id="hd-6" type="checkbox">
+    <label for="hd-6"><h5 style="margin:5px;cursor:pointer;width:auto;background:#0195d7;color:#ffffff;padding:5px;border-radius:15px;text-transform:uppercase;"><img src="/static/img/1005.svg" style="width:12px;height:12px;">6<img src="/static/img/1005.svg" style="width:12px;height:12px;"><br>апта</h5></label>
+    <div>
+        CSS - CSS Cascading Style Sheets — каскадные таблицы стилей — формальный язык описания внешнего вида документа, написанного с использованием языка разметки. Преимущественно используется как средство описания, оформления внешнего вида веб-страниц, написанных с помощью языков разметки HTML и XHTML, но может также применяться к любым XML-документам, например, к SVG или XUL.
+    </div>
+                    <br/>
+        <br/>
+    <input class="hide" id="hd-7" type="checkbox">
+    <label for="hd-7"><h5 style="margin:5px;cursor:pointer;width:auto;background:#7e81bd;color:#ffffff;padding:5px;border-radius:15px;text-transform:uppercase;"><img src="/static/img/1005.svg" style="width:12px;height:12px;">7<img src="/static/img/1005.svg" style="width:12px;height:12px;"><br>апта</h5></label>
+    <div>
+        CSS - CSS Cascading Style Sheets — каскадные таблицы стилей — формальный язык описания внешнего вида документа, написанного с использованием языка разметки. Преимущественно используется как средство описания, оформления внешнего вида веб-страниц, написанных с помощью языков разметки HTML и XHTML, но может также применяться к любым XML-документам, например, к SVG или XUL.
+    </div>
+</div>
+        <a href="{% url 'addnew' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1001.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>Жазуға машықтану</a><br>
+<a href="{% url 'addnew' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1001.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>Сөйлеуді дамыту</a><br>
+<a href="{% url 'addnew' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1001.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>Математика</a><br>
+<a href="{% url 'addnew' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1001.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>Есеп шығару</a><br>
+<a href="{% url 'addnew' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1001.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>Ұсақ моторика</a><br>
+<a href="{% url 'addnew' %}" style="font-family: 'KZ Cooper';font-weight: bold;
+            color: #00750D;
+            text-shadow:
+            -0   -1px 0   #FFFFFF,
+            0   -1px 0   #FFFFFF,
+           -0    1px 0   #FFFFFF,
+            0    1px 0   #FFFFFF,
+           -1px -0   0   #FFFFFF,
+            1px -0   0   #FFFFFF,
+           -1px  0   0   #FFFFFF,
+            1px  0   0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF,
+           -1px -1px 0   #FFFFFF,
+            1px -1px 0   #FFFFFF,
+           -1px  1px 0   #FFFFFF,
+            1px  1px 0   #FFFFFF;"><img src="{% static 'img/1001.svg' %}" style="margin:5px;width:59px;height:59px;position:relative;"><br>Ғылым (жаратылыстану)</a><br>
+
+      </div>
+  </main>
+  </div>
+<div class="wrapper row5" style="background:#e0e0e0;">
+  <div id="copyright" class="hoc clear">
+
+    <p class="fl_left">Copyright &copy; 2022 - Құқықтар сақталмаған</p>
+
+
+  </div>
+</div>
+
+  <a id="backtotop" href="#top"><i class="fas fa-chevron-up"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/jquery.backtotop.js' %}"></script>
+    <script src="{% static 'js/jquery.mobilemenu.js' %}"></script>
+    <script>
+      window.onload = function () {
+        document.body.classList.add('loaded_hiding');
+        window.setTimeout(function () {
+          document.body.classList.add('loaded');
+          document.body.classList.remove('loaded_hiding');
+        }, 500);
+      }
+    </script>
+</body>
+</html>

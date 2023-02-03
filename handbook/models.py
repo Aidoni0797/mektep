@@ -40,7 +40,17 @@ class QuestionModel(models.Model):
         return self.text
 
 
+class FirstWeek(models.Model):
+    firstweek_name = models.CharField(verbose_name='Жаңа тақырып енгізіңіз', max_length=40, blank=True)
+    firstweek_definition = models.TextField(verbose_name='Тақырып сипаттамасы, тапсырмалары', blank=True)
+    comapny_category = models.CharField(verbose_name='Қай жасқа арналған', max_length=40, choices=COMPANY_TYPES_CHOICES,
+                                        blank=True)
+    def publish(self):
+        self.published_date=timezone.now()
+        self.save()
 
+    def __str__(self):
+        return self.firstweek_name
 class Company(models.Model):
     company_name=models.CharField(verbose_name='Курс тақырыбы',max_length=40,blank=True)
     company_about=models.TextField(verbose_name='Курс сипаттамасы',blank=True)

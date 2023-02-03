@@ -54,6 +54,16 @@ def addnewcomp(request):
         form=CompForm()
     return render(request,'handbook/newcompform.html',{'form':form})
 
+def addnewfirstweek(request):
+    if request.method=='POST':
+        form=FirstWeek(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('firstweek')
+    else:
+        form=FirstWeek()
+    return render(request,'handbook/aidana.html',{'form':form})
+
 def addnewtest(request, pk):
     query = QuizModel.objects.filter(company=Company.objects.get(pk=pk))
     return render(request,'handbook/newtestform.html',{'tests':query, 'company':Company.objects.get(pk=pk)})
@@ -123,29 +133,27 @@ def createnewtest(request,pk):
 def test_detail(request,pk):
     if request.method=='GET':
         query = QuizModel.objects.get(pk=pk)
-        return render(request, 'handbook/test_detail.html',{'test':query})
+        return render(request, 'handbook/test_detail.html',{'test':query,'s':0,'ss':0,'l':0,'visibility':'hidden'})
     else:
         s = 0
         ss = 0
+        l = len(QuizModel.objects.get(pk=pk).questions.all())
         for i in QuizModel.objects.get(pk=pk).questions.all():
-            #print(request.POST.get('1_answer'))
             answer_id = i.correct_answer.id
-            checked_id = request.POST.get(str(i.id)+'_answer')
-            #increment = AnswerModel.objects.get(correct_answer=i)
-            print(answer_id)
-            print(checked_id)
-
+            checked_id = int(request.POST.get(str(i.id) + '_answer'))
             if answer_id == checked_id:
-                s+=1
+                s += 1
             else:
-                ss+=1
-        print('Дұрыс жауаптар: ',s)
-        print('Қате жауаптар: ', ss)
-
-        return render(request, 'handbook/test_detail.html',{'test':AnswerModel.objects.get(pk=pk)})
+                ss += 1
+        # print('Дұрыс жауаптар: ',s)
+        # print('Қате жауаптар: ', ss)
+        # print(l)
+        query = QuizModel.objects.get(pk=pk)
+        return render(request, 'handbook/test_detail.html',{'test':query,'s':s,'ss':ss,'l':int(s/l*100),'visibility':'visible'})
 def paint(request):
     return render(request,'painting/index.html')
-
+def aidana(request):
+    return render(request,'handbook/aidana.html')
 def register(request):
 
     data = {}
