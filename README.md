@@ -1,3 +1,3 @@
-Наступит ли когда-нибудь день, когда я наконец запушу, а iDONi?
+My result: https://idoni97.pythonanywhere.com/
 
-Will the day ever come when I finally push, iDONi?
+iDONi,  well done!
